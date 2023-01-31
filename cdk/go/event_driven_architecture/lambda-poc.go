@@ -23,7 +23,7 @@ func NewLambdaPocStack(scope constructs.Construct, id string, props *LambdaPocSt
 
 	// The code that defines your stack goes here
 
-	// Lambda function processing event from an EventBridge Bus
+	// Lambda function processing event from an EventBridge Bus.
 	fn := awslambda.NewFunction(stack, jsii.String("MyFunction"), &awslambda.FunctionProps{
 		Runtime: awslambda.Runtime_GO_1_X(),
 		Handler: jsii.String("main"),
@@ -38,7 +38,7 @@ func NewLambdaPocStack(scope constructs.Construct, id string, props *LambdaPocSt
 	// Dead letter queue for events not successfully sent to Lambda after the maximum retry period.
 	dlq := awssqs.NewQueue(stack, jsii.String("cdk-stack-dead-letter-queue"), &awssqs.QueueProps{})
 
-	// EventBridge Rule to send events from the bus to the Lambda function
+	// EventBridge Rule to send events from the bus to a Lambda function.
 	awsevents.NewRule(stack, jsii.String("cdk-stack-rule-lambda"), &awsevents.RuleProps{
 		Description: jsii.String("Send all events in this bus to Lambda"),
 		Enabled:     jsii.Bool(true),
@@ -48,7 +48,7 @@ func NewLambdaPocStack(scope constructs.Construct, id string, props *LambdaPocSt
 			Region: &[]*string{jsii.String("eu-west-1")},
 		},
 
-		// Send event to Lambda or DQL
+		// Send events to Lambda or DQL.
 		Targets: &[]awsevents.IRuleTarget{
 			awseventstargets.NewLambdaFunction(fn, &awseventstargets.LambdaFunctionProps{
 				DeadLetterQueue: dlq,
