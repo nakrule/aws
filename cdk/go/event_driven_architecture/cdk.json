@@ -1,5 +1,5 @@
 {
-  "app": "go mod download && go run lambda-poc.go",
+  "app": "go mod download && go run events_driven_arch.go",
   "watch": {
     "include": [
       "**"

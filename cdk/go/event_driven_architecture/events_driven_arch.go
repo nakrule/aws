@@ -10,11 +10,11 @@ import (
 	"github.com/aws/jsii-runtime-go"
 )
 
-type LambdaPocStackProps struct {
+type EventsDrivenArchStackProps struct {
 	awscdk.StackProps
 }
 
-func NewLambdaPocStack(scope constructs.Construct, id string, props *LambdaPocStackProps) awscdk.Stack {
+func NewEventsDrivenArchStack(scope constructs.Construct, id string, props *EventsDrivenArchStackProps) awscdk.Stack {
 	var sprops awscdk.StackProps
 	if props != nil {
 		sprops = props.StackProps
@@ -63,7 +63,7 @@ func main() {
 
 	app := awscdk.NewApp(nil)
 
-	NewLambdaPocStack(app, "LambdaPocStack", &LambdaPocStackProps{
+	NewEventsDrivenArchStack(app, "EventsDrivenArchStack", &EventsDrivenArchStackProps{
 		awscdk.StackProps{
 			Env: env(),
 		},
