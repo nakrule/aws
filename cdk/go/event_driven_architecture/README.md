@@ -1,6 +1,6 @@
-# Welcome to your CDK Go project!
+# AWS Event Driven Architecture
 
-This is a blank project for CDK development with Go.
+This is a project for CDK development with Go deploying the following architecture:
 
 The `cdk.json` file tells the CDK toolkit how to execute your app.
 
